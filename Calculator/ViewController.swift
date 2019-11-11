@@ -22,7 +22,6 @@ class ViewController: UIViewController {
 
     @IBAction func onTap(_ sender: Any) {
         print("Hello")
-        
         view.endEditing(true) //dismiss the keyboard
     }
     
@@ -37,7 +36,7 @@ class ViewController: UIViewController {
         //Update the tip and total lable
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
-        
+    
     }
     
     
