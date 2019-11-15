@@ -29,9 +29,21 @@ class ViewController: UIViewController {
         //Get the bill amount
         let bill = Double(billField.text!) ?? 0
         //Calculate the tip and total
-        let tipPercentages = [0.15, 0.18, 0.2]
+        //let tipPercentages = [0.15, 0.18, 0.2]
         
-        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let tipPercent: Double
+        switch tipControl.selectedSegmentIndex {
+        case 0:
+            tipPercent = 0.15;
+        case 1:
+            tipPercent = 0.18;
+        case 2:
+            tipPercent = 0.20;
+        default:
+            preconditionFailure("Unexpected index.")
+        }
+        
+        let tip = bill * tipPercent
         let total = bill + tip
         //Update the tip and total lable
         tipLabel.text = String(format: "$%.2f", tip)
